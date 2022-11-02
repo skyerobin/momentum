@@ -25,20 +25,15 @@ const Searching = Search.prototype;
             location.href = 'https://www.youtube.com/results?search_query=' + keyword;
           }else if(engine === 'Navershopping'){
             location.href = 'https://search.shopping.naver.com/search/all?query=' + keyword;
-          }else if(engine === 'kyobo'){
-            location.href ='https://me2.kr/' +keyword;
           }else if(engine === 'instagram'){
             location.href ='https://www.instagram.com/explore/tags/' + keyword;
           }else if(engine === 'twitter'){
             location.href ='https://twitter.com/search?q=' + keyword;  
           }else if(engine === 'music'){
               location.href = 'https://music.youtube.com/search?q=' + keyword;
-          }else if(engine === 'nintendo'){
-              location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
-          }else if(engine ==='naveren'){
-              location.href = 'https://en.dict.naver.com/#/search?range=all&query=' +keyword;
           }else{
-            location.href = 'https://ja.dict.naver.com/?s=h#/search?query=' + keyword;
+              location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
+          
           }
       });
   }
