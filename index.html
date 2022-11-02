@@ -38,10 +38,22 @@
         <input type="text" placeholder="Write a To Do and Press Enter" required />
       </form>
       <ul id="todo-list"></ul>
-      <div id="quote">
-        <span></span>
-        <span></span>
-      </div>
+      <div>
+        <form class="search" id="search"> 
+                <p> 🔎</p>
+            <select class="SelectSearch" name="WhichSearch"> 
+              <option id="google" value="google">Google</option> 
+              <option id="naver" value="naver">Naver</option>
+              <option id="youtube" value="youtube">Youtube</option> 
+              <option id="instagram" value="instagram">인스타그램</option>
+              <option id="vlive" value="twitter">트위터</option>
+              <option id="vibe" value="vibe">뮤직</option>
+              <option id="nintedo" value="nintendo">닌텐도e샵</option>
+              
+            <input class="keyword" type="text" name="search" size="9" maxlength="225" value="" autocomplete="off" target="_blank" id="sear">
+            </select>
+          
+      </form>
       
       </div>
       <script src="app.js"></script>
