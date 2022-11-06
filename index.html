@@ -58,7 +58,7 @@
             
          </optgroup>
         </select>
-    <div>
+        <br>
       <select id="dango">
           <option value=""></option>
           <optgroup label="単語">
@@ -67,24 +67,12 @@
               <option value="흡수율 きゅうしゅうりつ">吸収率</option>
               <option value="유연 じゅうなん">柔軟</option>
           </optgroup>
-          <optgroup label="eng">
-              <option value="I'm really into playing games.">게임하는 거에 푹 빠졌어요,</option>
-              <option value="What do you do for your free time?">시간 날 때 뭐하고 놀아?</option>
-              
-          </optgroup>
-          <optgroup label="...">
-
-            <option value="~를 보충하다">cover~</option>
-            <option value="부족">shortfall</option>
-            <option value="~을 늘렸다 [증가시켰다]">has ramped up~</option>
-            <option value="출하량">shipments</option>    
-          </optgroup>
       </select>
       <div id="txt">
           <textarea class="txt1" cols="35" rows="3" readonly=""></textarea>
       </div>
-    </div>
-    <script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+      <script>
           $("#dango").on("change",function(){
               $(".txt1").text($(this).val());
           })
