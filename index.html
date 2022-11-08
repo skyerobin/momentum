@@ -16,6 +16,20 @@
           align-items: center;
           justify-content: center;  
         }
+      
+       buttons > a {
+           
+            font-size: 15px;
+            font-weight: bold;
+          
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            
+            margin: 0px 8px 17px 8px;
+        }
     </style>
   </head>
   <body>
@@ -25,7 +39,23 @@
         <span></span>
         <span></span>
       </div> 
-     
+      <div class="buttons">
+                <a class="gsl">GSL</a>
+                <a class="lol">LOL</a>
+      </div>
+      
+      <select id="dango">
+          <option value=""></option>
+          <optgroup label="単語">
+              <option value="음표 おんぷ">音符</option>
+              <option value="도중에 머뭇거리다, 지정거리다 みちくさをくう">道草を食う</option>
+              <option value="흡수율 きゅうしゅうりつ">吸収率</option>
+              <option value="유연 じゅうなん">柔軟</option>
+          </optgroup>
+      </select>
+      <div id="txt">
+          <textarea class="txt1" cols="35" rows="3" readonly=""></textarea>
+      </div>
       <form id="todo-form">
         <input type="text" placeholder="Write a To Do and Press Enter" required />
       </form>
@@ -58,18 +88,6 @@
       </select>
     </div>
         <br>
-      <select id="dango">
-          <option value=""></option>
-          <optgroup label="単語">
-              <option value="음표 おんぷ">音符</option>
-              <option value="도중에 머뭇거리다, 지정거리다 みちくさをくう">道草を食う</option>
-              <option value="흡수율 きゅうしゅうりつ">吸収率</option>
-              <option value="유연 じゅうなん">柔軟</option>
-          </optgroup>
-      </select>
-      <div id="txt">
-          <textarea class="txt1" cols="35" rows="3" readonly=""></textarea>
-      </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
       <script>
           $("#dango").on("change",function(){
@@ -82,6 +100,21 @@
           
           $('.txt1').on('mouseleave',function(){
               $(this).css('color','white')
+          })
+        
+         
+          $("ul .gsl").on("click", function()
+          {
+          $(".txt").html(
+            "<iframe width='700' height='515' src=\"https://game.naver.com/esports/schedule/gsl\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+            )
+          })
+
+          $("ul .lol").on("click", function()
+          {
+          $(".txt").html(
+            "<iframe width='700' height='515' src=\"https://game.naver.com/esports/League_of_Legends/schedule/world_championship\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+            )
           })
       </script>
     <script src="clock.js"></script>
