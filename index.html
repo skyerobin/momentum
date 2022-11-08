@@ -73,7 +73,11 @@
       <div class="buttons">
                 <a class="gsl">GSL</a>
                 <a class="lol">LOL</a>
-      </div>  
+      </div>
+      <div class="buttons">
+                <a class="Dhsc2">DreamHack SC2</a>
+                <a class="btssmash">btssmash</a>
+      </div>
       <div id="txt">
           <textarea class="txt1" cols="15" rows="3" readonly=""></textarea>
       </div>
@@ -114,6 +118,19 @@
             {
             $("#txt").html(
               "<iframe width='300' height='315' src=\"https://game.naver.com/esports/League_of_Legends/schedule/world_championship\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+              )
+            })
+            $(".buttons .Dhsc2").on("click", function()
+            {
+            $("#txt").html(
+              "<iframe width='300' height='315' src=\"https://me2.kr/ueecp\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+              )
+            })
+
+            $(".buttons .btssmash").on("click", function()
+            {
+            $("#txt").html(
+              "<iframe width='300' height='315' src=\"https://me2.kr/v4et8\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
               )
             })
       </script>
