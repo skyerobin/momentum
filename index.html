@@ -100,7 +100,7 @@
                 <a class="lol">LOL</a>
       </div>
       <div class="buttons">
-        <a class=""></a>
+        <a class="dic">dic</a>
         <a class=""></a>
       </div>
       <div class="buttons">
@@ -163,7 +163,12 @@
               )
             })
             
-            
+            $(".buttons .dic").on("click", function()
+            {
+            $("#txt").html(
+              "<iframe width='350' height='318' src=\"https://ja.dict.naver.com/#/main\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+              )
+            })
            
       </script>
       <script src="clock.js"></script>
