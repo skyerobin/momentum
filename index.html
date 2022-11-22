@@ -89,12 +89,19 @@
               <option value="대사 せりふ">台詞</option>
               <option value="직항 ちょっこうびん">直行便</optoin>
               <option value="유효,유익 ゆうこう">有効</option>
+              <option value="동호회 활동 どうこうかいかつどう">同好会活動</option>
+              <option value="혀를 참 したうち">舌打ち</option>
+              <option value="패기, 기세 いきごみ">意気込み</option>
           </optgroup>
       </select>
       </div>  
       <div class="buttons">
                 <a class="gsl">GSL</a>
                 <a class="lol">LOL</a>
+      </div>
+      <div class="buttons">
+        <a class="sc2">DreamHack SC2</a>
+        <a class="btssmash<">btssmash<</a>
       </div>
       <div class="buttons">
                 <a class="jp">jp</a>
@@ -156,6 +163,18 @@
               )
             })
             
+            $(".buttons .sc2").on("click", function()
+            {
+            $("#txt").html(
+              "<iframe width='350' height='318' src=\"https://www.youtube-nocookie.com/embed/videoseries?list=PLoBxKk9n0UWc8-5eHtZXvg4Y5wRwFavnm\"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>)
+            })
+           
+            $(".buttons .btssmash<").on("click", function()
+            {
+            $("#txt").html(
+              "<iframe width='350' height='318' src=\"https://twitter.com/DreamHackSC2\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
+              )
+            })
       </script>
       <script src="clock.js"></script>
       <script src="weather.js"></script>
