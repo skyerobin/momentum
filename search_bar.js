@@ -31,10 +31,8 @@ const Searching = Search.prototype;
             location.href ='https://twitter.com/search?q=' + keyword;  
           }else if(engine === 'music'){
               location.href = 'https://music.youtube.com/search?q=' + keyword;
-          }else if(engine === 'nintendo'){
-              location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
           }else{
-            location.href = 'https://www.facebook.com/search/top?q='+keyword;
+              location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
           }
       });
   }
