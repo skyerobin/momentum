@@ -112,7 +112,8 @@
             <option value="외자 수입 がいしゆにゅう ">外資輸入</option>
         </optgroup>
       </select>
-      <br />
+    </div>
+    <div id="txt">
       <textarea class="txt1" rows="3" cols="10" readonly></textarea>
       </div>
         <div class="buttons">
@@ -151,14 +152,14 @@
 
             $(".buttons .gsl").on("click", function()
             {
-            $(".txt1").html(
+            $("#txt").html(
               "<iframe width='350' height='318' src=\"https://game.naver.com/esports/schedule/gsl\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
               )
             })
 
             $(".buttons .lol").on("click", function()
             {
-            $(".txt1").html(
+            $("#txt").html(
               "<iframe width='350' height='318' src=\"https://game.naver.com/esports/League_of_Legends/schedule/world_championship\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
               )
             })
