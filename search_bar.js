@@ -35,6 +35,7 @@ const Searching = Search.prototype;
               location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
           }else{
             location.href = 'https://www.facebook.com/search/top?q='+keyword;
+          }
       });
   }
   
