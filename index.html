@@ -76,87 +76,14 @@
       </div>
     
       <div>
-      <select id="dango">
-          <option value=""></option>
-          <optgroup label="単語">
-            <option value="음표 おんぷ">音符</option>
-            <option value="도중에 머뭇거리다, 지정거리다 みちくさをくう">道草を食う</option>
-            <option value="흡수율 きゅうしゅうりつ">吸収率</option>
-            <option value="유연 じゅうなん">柔軟</option>
-            <option value="미끄럼틀 すべりだい">滑り台</option>
-            <option value="울림 ひびき">響き</option>
-            <option value="천진난만함 むじゃき">無邪気</option>
-            <option value="떳떳하지 못하다 うしろめたい">後ろめたい</option>
-            <option value="대사 せりふ">台詞</option>
-            <option value="직항 ちょっこうびん">直行便</optoin>
-            <option value="유효,유익 ゆうこう">有効</option>
-            <option value="동호회 활동 どうこうかいかつどう">同好会活動</option>
-            <option value="혀를 참 したうち">舌打ち</option>
-            <option value="패기, 기세 いきごみ">意気込み</option>
-            <option value="복귀 ふっき">復帰</option>
-            <option value="전망 ながめ">眺め</option>
-            <option value="먼 바다 おき">沖</option>
-            <option value="げねつざい">解熱剤</option>
-            <option value="예명 げいめい">芸名</option>
-            <option value="나쁜 계락 わるだくみ">悪巧み</option>
-            <option value="미움을 받다 はなつまみ">鼻つまみ</option>
-            <option value="의심이 많다 うたぐりぶかい">疑り深い</option>
-            <option value="둔갑하다 ばける">化ける</option>
-            <option value="중반 ちゅうばん">中盤</option>
-            <option value="초능력 ちょうのうりょく">超能力</option>
-            <option value="까다롭다, 복잡해서 알기 어렵다">ややこしい</option>
-            <option value="예상대로, 아니나다를까あんのじょう">案の定</option>
-            <option value="아무런 양해도 없이">何の断りもなく</option>
-            <option value="적도せきどう ">赤道</option>
-            <option value="선풍기 せんぷうき">扇風機</option>
-            <option value="배수공법 はいすいこうほう">排水工法</option>
-            <option value="외자 수입 がいしゆにゅう ">外資輸入</option>
-            <option value="긴장 きんちょう">緊張</option>
-            <option value="고생 くろう">苦労</option>
-            <option value="중요 じゅうよう">重要</option>
-        　　 <option value="ばんぐみ">番組</option>　
-            <option value="간섭 かんしょう">干渉</option>
-            <option value="가치관 かちかん">価値観</option>       
-            <option value="おおて">大手</option>
-            <option value="이불 ふとん">布団</option>
-            <option vaule="담요 もうふ">毛布</option>
-            <option value="신발전용 くつせんよう">靴専用</option>
-            <option value="종료 しゅうりょう">終了</option>
-        　　 <option value="가동 かどう">稼働</option>
-            <option value="건조기 かんそうき">乾燥機</option>
-            <option value="확대 かくだい">拡大</option>
-            <option value="여유 よゆう">余裕</option>
-            <option value="신전 しんでん">神殿</option>
-            <option value="분량 ぶんりょう">分量</option>
-            <option value="기분전환 きぶんなおし">気分直し</option>
-            <option value="えきじょうか">液状化</option> 　
-            <option value="날카롭다, 예리하다 するどい">鋭い</option>
-            <option value="흠뻑">びっしょり</option>
-            <option value="식은 땀을 흘리다 ひやあせをかく">冷や汗をかく</option>
-            <option value="매우 침착하다 おちつきはら"></option>
-            <option value="의사결정 いしけってい">意思決定</option>
-            <option value="정리 せいり">整理</option>
-            <option value="틈 すきま">隙間</option>
-            <option value="접객 손님을 모으는 것, 모이는 것 しゅうきゃく">集客</option>
-            <option value="매우 큼 ぜつだい">絶大</option>
-     　　　　<option value="고전적 こてんてき">古典的</option>
-        </optgroup>
-        <optgroup label="">
-            <option value="간사이 かんさい">関西</option>
-            <option value="시가현 滋賀県">滋賀県</option>
-            <option value="효고현 ひょうごけん">兵庫県</option>
-            <option value="사이타마시">さいたま市</option>
-            <option value="さいたまけん">埼玉県</option>
-          
-        </optgroup>  
-      </select>
+      
     </div>
     <div id="txt">
       <textarea class="txt1" rows="3" cols="20" readonly></textarea>
       </div>
         <div class="buttons">
-            <a class="gsl">GSL</a>
-            <a class="lol">LOL</a>
+            
+            <!--<a class="lol">LOL</a>-->
         </div>
      
       <select class="selct" name="none" onchange="window.open(value,'_blank');" id="s2">
@@ -176,19 +103,7 @@
       </div><br>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
          <script>
-            $("#dango").on("change",function(){
-                $(".txt1").text($(this).val());
-            })
-
-            $('.txt1').on('mouseover',function(){
-                $(this).css('color','black');
-            })
-
-            $('.txt1').on('mouseleave',function(){
-                $(this).css('color','white')
-            })
-
-
+           
             $(".buttons .gsl").on("click", function()
             {
             $("#txt").html(
@@ -202,21 +117,7 @@
               "<iframe width='800' height='900' src=\"https://game.naver.com/esports/League_of_Legends/schedule/world_championship\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
               )
             })
-            $(".buttons .jp").on("click", function()
-            {
-            $("#txt").html(
-              "<iframe width='350' height='320' src=\"https://learn.dict.naver.com/conversation#/jpdic\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
-              )
-            })
            
-            $(".buttons .thai").on("click", function()
-            {
-            $("#txt").html(
-              "<iframe width='350' height='320' src=\"https://m.blog.naver.com/wanneeday?categoryNo=53\" type='application/x-shockwave-flash' allowfullscreen='true'></iframe>"
-              )
-            })
-            
-       
            
       </script>
      
