@@ -1,4 +1,4 @@
-const images = ["perthchimon.jpg"]
+const images = ["permon.jpg"]
 
 const chosenImage = images[Math.floor(Math.random()*images.length)];
 
