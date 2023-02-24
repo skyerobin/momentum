@@ -19,14 +19,14 @@
           ;
          
         }
-     .main{
+     #main{
        display: flex; 
        flex-direction: column; 
        align-items: center; 
        justify-content: center;
       }
 	    
-     .footer{
+     ul{
        display: flex; 
        flex-direction: column; 
        align-items: center; 
@@ -36,7 +36,7 @@
     </style>
   </head>
   <body>
-    <div class="main">
+    <div id="main">
       <h2 id="clock">00:00:00</h2>
       <div id="weather">
         <span></span>
@@ -61,8 +61,10 @@
              </select>
           <input class="keyword" type="text" name="search" size="9" maxlength="225" value="" autocomplete="off" target="_blank" id="sear" placeholder="🔎">
          </form>
+	  </div>      
+	      
       
-    
+    	
     
     <!--<div id="txt">
       
@@ -72,20 +74,7 @@
          
         </div>-->
      
-      <select class="selct" name="none" onchange="window.open(value,'_blank');" id="s2">
-        <option value="none">------  ------</option>
-        <optgroup label="ch">
-          <option value="https://m.blog.naver.com/wanneeday?categoryNo=53"> 태국어 공부  </option>
-          <option value="https://learn.dict.naver.com/conversation#/jpdic/">오늘의 일본어</option>
-          <option value="https://papago.naver.com/">papago</option>
-          <option value="https://www.youtube.com/playlist?list=PLoBxKk9n0UWc8-5eHtZXvg4Y5wRwFavnm">DreamHack SC2 Masters: Atlanta 2022</option>
-          <option value="https://www.youtube.com/@user-rf6qc7mf9b">보현쌤</option>
-          <option value="https://m.post.naver.com/my/series/detail.naver?seriesNo=439030&memberNo=10897373&prevVolumeNo=34660665">태국어 기본회화</option>
-          <option value="https://youtube.com/playlist?list=PLqWc2O_tK2xkwVl1EpVDp0blAB6T8hYT3">nf</option>
-          <option value="https://artsandculture.google.com/?hl=ko">아트앤컬쳐</option>
-          <option value="https://twitter.com/PerthChimonOFC?t=IoGzFNVsFJjN3nNo5sSb8g&s=09">#ชิม่อนไงจะใคร</option>
-        </optgroup>
-        </select>
+      
       </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
          <script>
