@@ -21,16 +21,8 @@ const Searching = Search.prototype;
               location.href = 'https://www.google.co.kr/search?q=' + keyword;
           }else if(engine === 'naver'){
               location.href = 'https://search.naver.com/search.naver?query=' + keyword;
-          }else if(engine === 'youtube'){
-            location.href = 'https://www.youtube.com/results?search_query=' + keyword;
-          }else if(engine === 'instagram'){
-            location.href ='https://www.instagram.com/explore/tags/' + keyword;
-          }else if(engine === 'twitter'){
-            location.href ='https://twitter.com/search?q=' + keyword;  
-          }else if(engine === 'music'){
-              location.href = 'https://music.youtube.com/search?q=' + keyword;
           }else{
-              location.href = 'https://www.nintendo.co.kr/search.php?globalSearch='+keyword;
+            location.href = 'https://www.youtube.com/results?search_query=' + keyword;
           }
       });
   }
