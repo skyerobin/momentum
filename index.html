@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .calendar {
-      width: 300px;
-      text-align: center;
-    }
-    .month {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .weekdays {
-      display: flex;
-      justify-content: space-between;
-    }
-    .weekdays div {
-      width: 40px;
-    }
-    .days {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .days div {
-      width: 40px;
-      height: 40px;
-      border: 1px solid gray;
-      position: relative; /* 추가 */
-    }
-    .days div span {
-      position: absolute; /* 추가 */
-      top: 5px; /* 위치 조정 */
-      right: 5px; /* 위치 조정 */
-    }
+    <style>
+   body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* viewport height를 사용하여 화면 전체 높이를 사용하도록 설정 */
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* 배경색을 조금 더 밝게 변경 */
+}
+
+.calendar {
+  width: 600px; /* 기존 300px에서 600px로 변경 */
+  text-align: center;
+}
+
+.month {
+  font-size: 2em; /* 폰트 사이즈를 더 크게 변경 */
+  font-weight: bold;
+  margin-bottom: 20px; /* 하단 여백을 더 크게 변경 */
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekdays div {
+  width: 80px; /* 기존 40px에서 80px로 변경 */
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.days div {
+  width: 80px; 
+  height: 80px; 
+  border: 1px solid gray;
+  position: relative;
+  padding: 10px; /* 패딩 추가 */
+  box-sizing: border-box; /* 박스 크기 계산 방식 변경 */
+  overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+  font-size: 0.7em; /* 여기에 추가 */
+}
+
+.days div span {
+  position: absolute;
+  top: 10px; /* 기존 5px에서 10px로 변경 */
+  right: 10px; /* 기존 5px에서 10px로 변경 */
+}
+
   </style>
+  <link rel="stylesheet" href="snow.css">	
 </head>
-<body>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
   <div class="calendar">
     <button onclick="prevMonth()">이전 달</button>
     <span class="month"></span>
@@ -51,54 +74,110 @@
     <div class="days"></div>
   </div>
 
-  <script>
-    let currentDate = new Date();
+ <script>
+let currentDate = new Date();
+let schedule = JSON.parse(localStorage.getItem('schedule')) || {};
 
-    function renderCalendar() {
-      const year = currentDate.getFullYear();
-      const month = currentDate.getMonth();
-      const firstDay = new Date(year, month, 1);
-      const lastDay = new Date(year, month + 1, 0);
-      const daysInMonth = lastDay.getDate();
-      let startDay = firstDay.getDay();
+function renderCalendar() {
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const daysInMonth = lastDay.getDate();
+  let startDay = firstDay.getDay();
 
-      if (startDay === 0) {
-        startDay = 6; // 일요일을 6으로 변경
+  if (startDay === 0) {
+    startDay = 6;
+  } else {
+    startDay -= 1;
+  }
+
+  const monthElement = document.querySelector('.month');
+  monthElement.textContent = year + '년 ' + (month + 1) + '월';
+
+  const daysElement = document.querySelector('.days');
+  daysElement.innerHTML = '';
+
+  for (let i = 0; i < startDay; i++) {
+    const emptyDay = document.createElement('div');
+    daysElement.appendChild(emptyDay);
+  }
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    const day = document.createElement('div');
+    day.addEventListener("click", function() {
+      const dateKey = `${year}-${month+1}-${i}`;
+      if (schedule[dateKey]) {
+        const action = prompt("'추가', '수정', '삭제' 중 하나를 입력하세요.");
+        if (action.toLowerCase() === '추가') {
+          const newSchedule = prompt("새 일정을 입력해주세요.");
+          if (newSchedule) {
+            schedule[dateKey].push(newSchedule);
+            alert("일정이 추가되었습니다.");
+          }
+        } else if (action.toLowerCase() === '수정') {
+          const modification = prompt("수정할 일정을 선택하세요. (1부터 시작)");
+          const index = parseInt(modification) - 1;
+          if (index >= 0 && index < schedule[dateKey].length) {
+            const newSchedule = prompt("새 일정을 입력해주세요.", schedule[dateKey][index]);
+            if (newSchedule) {
+              schedule[dateKey][index] = newSchedule;
+              alert("일정이 수정되었습니다.");
+            }
+          }
+        } else if (action.toLowerCase() === '삭제') {
+          const deletion = prompt("삭제할 일정을 선택하세요. (1부터 시작)");
+          const index = parseInt(deletion) - 1;
+          if (index >= 0 && index < schedule[dateKey].length) {
+            schedule[dateKey].splice(index, 1);
+            alert("일정이 삭제되었습니다.");
+          }
+        }
       } else {
-        startDay -= 1; // 월요일부터 시작하도록 변경
+        const scheduleInput = prompt("일정을 입력해주세요.");
+        if (scheduleInput) {
+          if (!schedule[dateKey]) {
+            schedule[dateKey] = [];
+          }
+          schedule[dateKey].push(scheduleInput);
+          alert("일정이 저장되었습니다."); 
+        }
       }
-
-      const monthElement = document.querySelector('.month');
-      monthElement.textContent = year + '년 ' + (month + 1) + '월';
-
-      const daysElement = document.querySelector('.days');
-      daysElement.innerHTML = '';
-
-      for (let i = 0; i < startDay; i++) {
-        const emptyDay = document.createElement('div');
-        daysElement.appendChild(emptyDay);
-      }
-
-      for (let i = 1; i <= daysInMonth; i++) {
-        const day = document.createElement('div');
-        const dayNumber = document.createElement('span'); /* 추가 */
-        dayNumber.textContent = i;
-        day.appendChild(dayNumber); /* 변경 */
-        daysElement.appendChild(day);
-      }
+      localStorage.setItem('schedule', JSON.stringify(schedule));
+      renderCalendar(); 
+    });
+    
+    const dayNumber = document.createElement('span');
+    dayNumber.textContent = i;
+    day.appendChild(dayNumber);
+  
+    if (schedule[`${year}-${month+1}-${i}`]) { 
+      schedule[`${year}-${month+1}-${i}`].forEach((scheduleItem, index) => {
+        const scheduleText = document.createElement('p');
+        scheduleText.textContent = (index + 1) + '. ' + scheduleItem;
+        day.appendChild(scheduleText);
+      });
     }
+  
+    daysElement.appendChild(day);
+  }
+}
 
-    function prevMonth() {
-      currentDate.setMonth(currentDate.getMonth() - 1);
-      renderCalendar();
-    }
+function prevMonth() {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar();
+}
 
-    function nextMonth() {
-      currentDate.setMonth(currentDate.getMonth() + 1);
-      renderCalendar();
-    }
+function nextMonth() {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar();
+}
 
-    renderCalendar();
-  </script>
+renderCalendar();
+
+
+
+</script>
+
 </body>
 </html>
