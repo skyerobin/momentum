@@ -13,7 +13,7 @@
 }
 
 .calendar {
-  width: 300px; 
+  width: 400px; /* 달력의 너비를 500px로 변경 */
   text-align: center;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .weekdays div {
-  width: 40px; 
+  width: 71px; /* weekdays div의 너비를 (500px - 패딩) / 7로 계산하여 변경 */
 }
 
 .days {
@@ -38,20 +38,20 @@
 }
 
 .days div {
-  width: 20px; /* 날짜 크기를 40px에서 20px로 줄임 */
-  height: 20px; /* 날짜 크기를 40px에서 20px로 줄임 */
+  width: 71px; /* days div의 너비를 (500px - 패딩) / 7로 계산하여 변경 */
+  height: 71px; /* days div의 높이를 너비와 동일하게 변경 */
   border: 1px solid gray;
   position: relative;
-  padding: 5px; /* 패딩을 10px에서 5px로 줄임 */
+  padding: 5px; 
   box-sizing: border-box; 
   overflow: auto; 
-  font-size: 0.35em; /* 폰트 사이즈를 0.7em에서 0.35em로 줄임 */
+  font-size: 0.5em; /* 폰트 사이즈를 약간 크게 조절 */
 }
 
 .days div span {
   position: absolute;
-  top: 5px; /* 위치를 10px에서 5px로 줄임 */
-  right: 5px; /* 위치를 10px에서 5px로 줄임 */
+  top: 5px; 
+  right: 5px; 
 }
   </style>
   <link rel="stylesheet" href="snow.css">	
