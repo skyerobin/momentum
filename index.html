@@ -1,49 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Momentum App</title>
-    <style>
-     body{
-       background-image: url("background.js");
-        background-size: contain;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        color: aliceblue;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;  
-        }
-    </style>
-  </head>
-  <body>
-    <div class="main">
-      <h2 id="clock">00:00:00</h2>
-      <div id="weather">
-        <span></span>
-        <span></span>
-      </div> 
-      
-      
-      <form id="todo-form">
-        <input type="text" placeholder="Write a To Do and Press Enter" required />
-      </form>
-      <ul id="todo-list"></ul>
-      <div>
-         
-      
-      </div>
-      <script src="app.js"></script>
-      <script src="clock.js"></script>
-      <script src="weather.js"></script>
-      <script src="quotes.js"></script>
-     
-      <script src="todo.js"></script>
-         
+<html>
+<head>
+  <style>
+    .calendar {
+      width: 300px;
+      text-align: center;
+    }
+    .month {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .weekdays {
+      display: flex;
+      justify-content: space-between;
+    }
+    .weekdays div {
+      width: 40px;
+    }
+    .days {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .days div {
+      width: 40px;
+      height: 40px;
+      border: 1px solid gray;
+      position: relative; /* 추가 */
+    }
+    .days div span {
+      position: absolute; /* 추가 */
+      top: 5px; /* 위치 조정 */
+      right: 5px; /* 위치 조정 */
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar">
+    <button onclick="prevMonth()">이전 달</button>
+    <span class="month"></span>
+    <button onclick="nextMonth()">다음 달</button>
+    <div class="weekdays">
+      <div>월</div>
+      <div>화</div>
+      <div>수</div>
+      <div>목</div>
+      <div>금</div>
+      <div>토</div>
+      <div>일</div>
     </div>
-  </body>
+    <div class="days"></div>
+  </div>
+
+  <script>
+    let currentDate = new Date();
+
+    function renderCalendar() {
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+      let startDay = firstDay.getDay();
+
+      if (startDay === 0) {
+        startDay = 6; // 일요일을 6으로 변경
+      } else {
+        startDay -= 1; // 월요일부터 시작하도록 변경
+      }
+
+      const monthElement = document.querySelector('.month');
+      monthElement.textContent = year + '년 ' + (month + 1) + '월';
+
+      const daysElement = document.querySelector('.days');
+      daysElement.innerHTML = '';
+
+      for (let i = 0; i < startDay; i++) {
+        const emptyDay = document.createElement('div');
+        daysElement.appendChild(emptyDay);
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement('div');
+        const dayNumber = document.createElement('span'); /* 추가 */
+        dayNumber.textContent = i;
+        day.appendChild(dayNumber); /* 변경 */
+        daysElement.appendChild(day);
+      }
+    }
+
+    function prevMonth() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar();
+    }
+
+    function nextMonth() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar();
+    }
+
+    renderCalendar();
+  </script>
+</body>
 </html>
