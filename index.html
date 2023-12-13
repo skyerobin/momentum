@@ -39,14 +39,21 @@
 }
 
 .days div {
-  width: calc(100% / 7);
-  height: calc(100% / 7);
+  width: 80px; 
+  height: 80px; 
   border: 1px solid gray;
   position: relative;
   padding: 10px;
   box-sizing: border-box;
   overflow: auto;
   font-size: 0.7em;
+}
+
+@media screen and (max-width: 600px) {
+  .days div {
+    width: 60px;
+    height: 60px;
+  }
 }
 .days div span {
   position: absolute;
