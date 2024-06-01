@@ -2,6 +2,36 @@
 <html>
 <head>
     <style>
+        @media (max-width: 600px) {
+  /* 스마트폰 크기 (600px 이하) 스타일 */
+  .calendar {
+    width: 100%; /* 전체 너비 차지 */
+  }
+
+  .month {
+    font-size: 1.5em; /* 폰트 크기 조절 */
+  }
+
+  .weekdays {
+    flex-direction: column; /* 열 방향으로 배치 */
+    align-items: center; /* 가운데 정렬 */
+  }
+
+  .weekdays div {
+    width: 100%; /* 각 요일 칸 전체 너비 차지 */
+    margin-bottom: 10px; /* 하단 여백 추가 */
+  }
+
+  .days {
+    flex-direction: column; /* 열 방향으로 배치 */
+  }
+
+  .days div {
+    width: 100%; /* 각 날짜 칸 전체 너비 차지 */
+    margin-bottom: 10px; /* 하단 여백 추가 */
+  }
+}
+
   body {
   display: flex;
   justify-content: center;
@@ -10,27 +40,30 @@
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
-  overflow: auto;
 }
 
 .calendar {
-  width: 80%;
+  width: 600px;
   text-align: center;
+  display: flex;
+  flex-direction: column; /* 스마트폰에서는 열 방향으로 배치 */
 }
 
 .month {
-  font-size: 2em; /* 폰트 사이즈를 더 크게 변경 */
+  font-size: 2em;
   font-weight: bold;
-  margin-bottom: 20px; /* 하단 여백을 더 크게 변경 */
+  margin-bottom: 20px;
 }
 
 .weekdays {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px; /* 하단 여백 추가 */
 }
 
 .weekdays div {
-  width: 80px; /* 기존 40px에서 80px로 변경 */
+  width: 80px;
+  text-align: center;
 }
 
 .days {
@@ -39,7 +72,7 @@
 }
 
 .days div {
-  width: 80px; 
+  width: 100%; 
   height: 80px; 
   border: 1px solid gray;
   position: relative;
@@ -49,17 +82,13 @@
   font-size: 0.7em;
 }
 
-@media screen and (max-width: 600px) {
-  .days div {
-    width: 60px;
-    height: 60px;
-  }
-}
 .days div span {
   position: absolute;
-  top: 10px; /* 기존 5px에서 10px로 변경 */
-  right: 10px; /* 기존 5px에서 10px로 변경 */
+  top: 10px;
+  right: 10px;
 }
+
+/* 스마트폰 크기 (600px 이하) 스타일 */
 
   </style>
   <link rel="stylesheet" href="snow.css">	
